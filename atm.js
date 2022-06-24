@@ -35,12 +35,17 @@ const withdraw = () => {
     if (parseInt(wAmount) < account.balance) {
         account.balance = account.balance - wAmount
         window.localStorage.setItem('balance', account.balance)
-        document.getElementById('w-container').innerHTML = 'Please Collect Your Cash'
+        document.getElementById('w-container').innerHTML = 'Please Collect Your Cash' + '<br> You will be redirectd to home page in 5 seconds'
         document.getElementById('w-container').style.color = 'green'
-
+        setTimeout(()=>{
+        window.location.href = 'atm.html'
+        },5000)
     } else {
-        document.getElementById('w-container').innerHTML = 'Not Enough Balance'
+        document.getElementById('w-container').innerHTML = 'Not Enough Balance' + '<br> You will be redirectd to home page in 5 seconds'
         document.getElementById('w-container').style.color = 'red'
+        setTimeout(()=>{
+            window.location.href = 'atm.html'
+        },5000)
     }
 
 }
@@ -53,7 +58,10 @@ const deposit = () => {
     let dAmount = document.getElementById('d-amount').value
     account.balance = parseInt(account.balance) + parseInt(dAmount)
     window.localStorage.setItem('balance', account.balance)
-    document.getElementById('d-container').innerHTML = 'Deposited Successfully, Current Balance ' + account.balance
+    document.getElementById('d-container').innerHTML = 'Deposited Successfully, Current Balance ' + account.balance+ '<br> You will be redirectd to home page in 5 seconds'
     document.getElementById('d-container').style.color = 'green'
+    setTimeout(()=>{
+        window.location.href = 'atm.html'
+    },5000)
 }
 
